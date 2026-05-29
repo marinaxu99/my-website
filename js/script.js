@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const dynamicGreeting = document.getElementById('dynamic-greeting');
     const introScreen = document.getElementById('intro-screen');
 
-    // INTRO SCREEN CONTROLLERS (Your customized execution values)
+    // INTRO SCREEN CONTROLLERS 
     setTimeout(() => {
         if (introScreen) introScreen.classList.add('hide-intro');
     }, 5500);
