@@ -1,0 +1,36 @@
+/* Update the Nav to be a Primary Header */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 0;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #3d3b37;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-left: 2rem;
+    opacity: 0.5;
+}
+
+.nav-links a.active {
+    opacity: 1;
+    border-bottom: 1px solid #3d3b37;
+}
+
+/* The Header sets the primary tone */
+.claystory-header {
+    margin: 8rem 0;
+    max-width: 600px;
+}
+
+.claystory-header h1 {
+    font-family: 'Italiana', serif;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+/* ... Keep the gallery styles from previous step ... */

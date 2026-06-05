@@ -25,9 +25,12 @@ body.theme-film {
     color: #e8e5df;
 }
 
+/* STONEWARE & ASH PALETTE */
 body.theme-nan {
-    background-color: #d6d2c7;
-    color: #2b2926;
+    background-color: #f0ede6;
+    /* Pale greyish-cream */
+    color: #1f1f1d;
+    /* Almost black */
 }
 
 .site-wrapper {
@@ -185,7 +188,8 @@ p {
 }
 
 body.theme-nan .navbar {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(31, 31, 29, 0.2);
+    /* Adjusted to #1f1f1d */
 }
 
 .logo {
@@ -214,8 +218,8 @@ body.theme-film .toggle-container button.active {
 }
 
 body.theme-nan .toggle-container button.active {
-    background: #2b2926;
-    color: #d6d2c7;
+    background: #1f1f1d;
+    color: #f0ede6;
 }
 
 /* =========================================
@@ -246,7 +250,7 @@ body.theme-nan .toggle-container button.active {
 }
 
 body.theme-nan .arki-feature {
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-top: 1px solid rgba(31, 31, 29, 0.2);
 }
 
 .arki-feature h2 {
@@ -288,14 +292,10 @@ body.theme-nan .arki-feature {
     display: block;
     min-height: 400px;
     background-color: rgba(0, 0, 0, 0.05);
-
-    /* THE SAFARI NUCLEAR OPTION */
     position: relative;
     z-index: 1;
     isolation: isolate;
-    /* Forces a strict new rendering layer */
     -webkit-mask-image: -webkit-radial-gradient(white, black);
-    /* Bypasses the border-radius clipping bug */
 }
 
 .arki-image a {
@@ -309,8 +309,6 @@ body.theme-nan .arki-feature {
     height: auto;
     display: block;
     transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
-
-    /* Tells the browser's GPU to dedicate memory to this element BEFORE hover */
     will-change: transform;
 }
 
@@ -329,7 +327,7 @@ body.theme-nan .arki-feature {
 }
 
 body.theme-nan .site-footer {
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-top: 1px solid rgba(31, 31, 29, 0.2);
 }
 
 .footer-content {
