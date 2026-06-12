@@ -18,7 +18,8 @@ body.theme-nan {
     align-items: center;
     padding: 1rem 0;
     border-bottom: 1px solid rgba(31, 31, 29, 0.15);
-    margin-bottom: 6rem;
+    margin-bottom: 2rem;
+    /* Adjusted slightly to give intro space */
 }
 
 .site-name {
@@ -66,6 +67,141 @@ body.theme-nan {
     width: 100%;
 }
 
+/* =========================================
+   INTRO SECTION: ORGANIC CLAY (Massive Overlap)
+   ========================================= */
+
+.intro-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 650px;
+    padding: 40px 8%;
+    margin-bottom: 80px;
+    overflow: hidden;
+}
+
+/* Container for the shapes - Pinned to the background */
+.clay-shapes-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Base styles for both blobs */
+.clay-blob {
+    transition: all 1s ease;
+    opacity: 0.8;
+}
+
+/* Blob One: Lighter, sits behind */
+.blob-one {
+    width: 500px;
+    height: 520px;
+    background-color: #e5e2d9;
+    position: absolute;
+    margin-left: -120px;
+    z-index: 0;
+    animation: morphClayOne 14s ease-in-out infinite;
+}
+
+/* Blob Two: Darker, sits in front */
+.blob-two {
+    width: 580px;
+    height: 580px;
+    background-color: #dcd8d0;
+    position: absolute;
+    margin-left: 100px;
+    z-index: 1;
+    animation: morphClayTwo 18s ease-in-out infinite reverse;
+}
+
+/* Typography matching your clean aesthetic - Pulled to the front */
+.intro-text-container {
+    text-align: center;
+    max-width: 480px;
+    position: relative;
+    z-index: 2;
+}
+
+.intro-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #1f1f1d;
+    opacity: 0.6;
+    margin-bottom: 25px;
+}
+
+.intro-title {
+    font-family: 'Italiana', serif;
+    font-size: 4rem;
+    line-height: 1.1;
+    color: #1f1f1d;
+    margin-bottom: 25px;
+}
+
+.intro-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #1f1f1d;
+    opacity: 0.8;
+    margin: 0 auto;
+}
+
+/* =========================================
+   THE CLAY ANIMATIONS
+   ========================================= */
+
+@keyframes morphClayOne {
+    0% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+        transform: scale(1.03) rotate(3deg);
+    }
+
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes morphClayTwo {
+    0% {
+        border-radius: 40% 60% 70% 30% / 50% 60% 30% 60%;
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        border-radius: 70% 30% 40% 60% / 60% 40% 60% 40%;
+        transform: scale(0.97) rotate(-3deg);
+    }
+
+    100% {
+        border-radius: 40% 60% 70% 30% / 50% 60% 30% 60%;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* =========================================
+   GALLERY & LAYOUT
+   ========================================= */
+
 /* Columnar Shift: Now fixed height to match gallery */
 .theme-section {
     display: grid;
@@ -73,19 +209,15 @@ body.theme-nan {
     gap: 4rem;
     margin-bottom: 8rem;
     align-items: start;
-    /* This keeps them aligned at the top */
 }
 
 .theme-meta {
     height: 400px;
-    /* Matches the gallery height */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 20px 0;
-    /* Adds vertical breathing room */
     box-sizing: border-box;
-    /* Ensures padding stays inside the 400px height */
 }
 
 .series-label {
@@ -100,9 +232,7 @@ body.theme-nan {
     font-family: 'Italiana', serif;
     font-size: 2.5rem;
     margin: 5px 0 0 0;
-    /* Tighten top margin */
     line-height: 1;
-    /* Remove extra space around font */
     font-weight: 400;
 }
 
@@ -112,7 +242,6 @@ body.theme-nan {
     font-style: italic;
     opacity: 0.6;
     line-height: 1.4;
-    /* Tighten line height */
     margin: 0;
 }
 
