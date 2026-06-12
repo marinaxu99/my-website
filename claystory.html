@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>NAN STUDIO | Journal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAN STUDIO</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Italiana&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/claystory.css">
@@ -11,26 +12,133 @@
 
 <body class="theme-nan">
 
-    <nav class="main-nav">
-        <div class="nav-logo">NAN STUDIO</div>
-        <div class="nav-links">
-            <a href="index.html">Arki Pictures</a>
-            <a href="claystory.html" class="active">Clay Story</a>
+    <nav class="navbar">
+        <div class="site-name">NAN STUDIO</div>
+        <div class="logo">
+            <a href="claystory.html"><img src="assets/nanlogo.png" alt="NAN STUDIO"></a>
         </div>
+        <div class="nav-links"><a href="index.html?returning=true">BACK TO MMX</a></div>
     </nav>
 
-    <header class="claystory-header">
-        <h1>Clay Story</h1>
-        <p>A living archive of unique pieces, hand-thrown in the studio. Each object is an exploration of form, texture,
-            and silence. Once a piece finds its home, its story in this archive is complete.</p>
-    </header>
-
     <main class="journal-container">
-        <h2 class="theme-section-title">The Ash Series</h2>
-        <div class="theme-gallery">
-        </div>
+
+        <section class="theme-section">
+            <div class="theme-meta">
+                <div class="meta-top">
+                    <span class="series-label">Series 01</span>
+                    <h2 class="theme-section-title">Single Object</h2>
+                </div>
+                <p class="theme-intro">Focusing on the solitary form, stripped of context to invite total presence.</p>
+            </div>
+            <div class="theme-gallery">
+                <div class="piece-card" onclick="openPiece('Monolith', 'Hand-thrown, matte finish', '$180')">
+                    <div class="piece-img-wrapper"><img src="https://placehold.co/400x400/dcd8d0/dcd8d0" alt="Monolith">
+                    </div>
+                    <div class="piece-info">
+                        <h3>Monolith</h3>
+                        <p>Available</p>
+                    </div>
+                </div>
+                <div class="piece-card" onclick="openPiece('Vessel A', 'Stoneware', '$140')">
+                    <div class="piece-img-wrapper"><img src="https://placehold.co/400x400/dcd8d0/dcd8d0" alt="Vessel A">
+                    </div>
+                    <div class="piece-info">
+                        <h3>Vessel A</h3>
+                        <p>Available</p>
+                    </div>
+                </div>
+                <div class="piece-card" onclick="openPiece('Vessel B', 'Matte glaze', '$160')">
+                    <div class="piece-img-wrapper"><img src="https://placehold.co/400x400/dcd8d0/dcd8d0" alt="Vessel B">
+                    </div>
+                    <div class="piece-info">
+                        <h3>Vessel B</h3>
+                        <p>Archived</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="theme-section">
+            <div class="theme-meta">
+                <div class="meta-top">
+                    <span class="series-label">Series 02</span>
+                    <h2 class="theme-section-title">As It Is</h2>
+                </div>
+                <p class="theme-intro">Celebrating the raw, unrefined nature of the clay.</p>
+            </div>
+            <div class="theme-gallery">
+                <div class="piece-card" onclick="openPiece('Raw Bowl', 'Unfinished edge', '$90')">
+                    <div class="piece-img-wrapper"><img src="https://placehold.co/400x400/dcd8d0/dcd8d0" alt="Raw Bowl">
+                    </div>
+                    <div class="piece-info">
+                        <h3>Raw Bowl</h3>
+                        <p>Available</p>
+                    </div>
+                </div>
+                <div class="piece-card" onclick="openPiece('Earth Slab', 'Textured surface', '$110')">
+                    <div class="piece-img-wrapper"><img src="https://placehold.co/400x400/dcd8d0/dcd8d0"
+                            alt="Earth Slab"></div>
+                    <div class="piece-info">
+                        <h3>Earth Slab</h3>
+                        <p>Available</p>
+                    </div>
+                </div>
+                <div class="piece-card" onclick="openPiece('Iron Fragment', 'Stained clay', '$75')">
+                    <div class="piece-img-wrapper"><img src="https://placehold.co/400x400/dcd8d0/dcd8d0"
+                            alt="Iron Fragment"></div>
+                    <div class="piece-info">
+                        <h3>Iron Fragment</h3>
+                        <p>Available</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="theme-section">
+            <div class="theme-meta">
+                <div class="meta-top">
+                    <span class="series-label">Series 03</span>
+                    <h2 class="theme-section-title">Zoning Out</h2>
+                </div>
+                <p class="theme-intro">Pieces born from the meditative, repetitive motion of the wheel.</p>
+            </div>
+            <div class="theme-gallery">
+                <div class="piece-card" onclick="openPiece('Tea Cup', 'Daily use', '$45')">
+                    <div class="piece-img-wrapper"><img src="https://placehold.co/400x400/dcd8d0/dcd8d0" alt="Tea Cup">
+                    </div>
+                    <div class="piece-info">
+                        <h3>Tea Cup</h3>
+                        <p>Available</p>
+                    </div>
+                </div>
+                <div class="piece-card" onclick="openPiece('Wide Bowl', 'Repetitive form', '$65')">
+                    <div class="piece-img-wrapper"><img src="https://placehold.co/400x400/dcd8d0/dcd8d0"
+                            alt="Wide Bowl"></div>
+                    <div class="piece-info">
+                        <h3>Wide Bowl</h3>
+                        <p>Available</p>
+                    </div>
+                </div>
+                <div class="piece-card" onclick="openPiece('Small Saucer', 'Wheel thrown', '$35')">
+                    <div class="piece-img-wrapper"><img src="https://placehold.co/400x400/dcd8d0/dcd8d0"
+                            alt="Small Saucer"></div>
+                    <div class="piece-info">
+                        <h3>Small Saucer</h3>
+                        <p>Available</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-left">© 2026 NAN STUDIO</div>
+            <div class="footer-center">HANDCRAFTED INTENTIONS</div>
+            <div class="footer-right typewriter-date">UPDATED 06/12/26</div>
+        </div>
+    </footer>
+    <div id="piece-modal" class="modal">...</div>
     <script src="js/claystory.js"></script>
 </body>
 
