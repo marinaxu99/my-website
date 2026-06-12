@@ -109,7 +109,8 @@ body.theme-nan {
     height: 520px;
     background-color: #e5e2d9;
     position: absolute;
-    margin-left: -120px;
+    margin-left: -300px;
+    /* Pushed further left (was -120px) */
     z-index: 0;
     animation: morphClayOne 14s ease-in-out infinite;
 }
@@ -120,7 +121,8 @@ body.theme-nan {
     height: 580px;
     background-color: #dcd8d0;
     position: absolute;
-    margin-left: 100px;
+    margin-left: 250px;
+    /* Pushed further right (was 100px) */
     z-index: 1;
     animation: morphClayTwo 18s ease-in-out infinite reverse;
 }
@@ -304,7 +306,7 @@ body.theme-nan {
 
 /* Footer */
 .site-footer {
-    padding: 1rem 0;
+    padding: 3rem 0;
     border-top: 1px solid rgba(31, 31, 29, 0.1);
 }
 
