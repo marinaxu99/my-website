@@ -1,0 +1,199 @@
+/* project.css — see README.md for page assignments. */
+
+.type-specimen {
+    background: #ebdfd0;
+    flex-direction: column;
+    align-items: start;
+    padding: 35px;
+}
+
+.type-specimen strong {
+    font: 48px/1.1 var(--mono);
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.type-specimen p {
+    font: 12px/1.7 var(--mono);
+    max-width: 210px;
+}
+
+.project-header h1 {
+    font-family: var(--mono);
+    font-size: clamp(42px, 6vw, 84px);
+    font-weight: 400;
+    line-height: 1.06;
+    letter-spacing: -0.04em;
+    margin: 24px 0;
+}
+
+.project-header {
+    padding: 40px 0;
+}
+
+.back-link {
+    font: 12px var(--mono);
+    color: var(--muted);
+}
+
+.back-link:hover {
+    color: var(--accent);
+}
+
+.project-header .intro {
+    font-size: 22px;
+    max-width: 720px;
+    line-height: 1.45;
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px 60px;
+    border-top: 1px solid var(--line);
+    padding: 22px 0 0;
+    margin-top: 40px;
+}
+
+.project-meta div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 14px;
+}
+
+.project-hero {
+    margin: 8px 0 65px;
+}
+
+.project-hero .project-art {
+    aspect-ratio: 1.9;
+}
+
+.project-hero .type-specimen {
+    align-items: center;
+}
+
+.project-hero .type-specimen strong {
+    font-size: clamp(45px, 7vw, 96px);
+}
+
+.project-copy {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 70px;
+    padding: 0 0 58px;
+    max-width: 1150px;
+}
+
+.project-copy h2 {
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.project-copy p {
+    font-size: 18px;
+    line-height: 1.65;
+    margin: 0 0 20px;
+}
+
+.project-copy p:last-child {
+    margin: 0;
+}
+
+.project-copy .note {
+    font-size: 14px;
+    color: var(--muted);
+    border-left: 2px solid var(--accent);
+    padding-left: 20px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin: 0 0 65px;
+}
+
+.gallery figure {
+    margin: 0;
+}
+
+.gallery img {
+    width: 100%;
+    background: #eee;
+}
+
+.gallery figcaption {
+    font: 12px/1.6 var(--mono);
+    color: var(--muted);
+    padding-top: 14px;
+}
+
+.next-project {
+    border-top: 1px solid var(--line);
+    padding: 25px 0 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.next-project a {
+    font-family: var(--mono);
+    font-size: clamp(24px, 3.5vw, 46px);
+    letter-spacing: -0.03em;
+}
+
+.next-project a:hover {
+    color: var(--accent);
+}
+
+@media(max-width: 900px) {
+.project-copy {
+        gap: 35px;
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+@media(max-width: 600px) {
+.project-header {
+        padding: 30px 0;
+    }
+.project-header .intro {
+        font-size: 18px;
+    }
+.project-meta {
+        gap: 22px 32px;
+        margin-top: 28px;
+    }
+.project-hero {
+        margin-bottom: 38px;
+    }
+.project-hero .project-art {
+        aspect-ratio: 1.25;
+    }
+.project-copy {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding-bottom: 38px;
+    }
+.project-copy p {
+        font-size: 16px;
+    }
+.gallery {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 45px;
+    }
+.next-project {
+        display: block;
+        padding-bottom: 45px;
+    }
+.next-project a {
+        display: block;
+        margin-top: 18px;
+    }
+}

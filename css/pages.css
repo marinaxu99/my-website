@@ -1,0 +1,219 @@
+/* pages.css — see README.md for page assignments. */
+
+.lab-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 35px;
+    margin-bottom: 80px;
+}
+
+.lab-grid .project-art {
+    aspect-ratio: 1.48;
+}
+
+.project-card {
+    display: block;
+    min-width: 0;
+}
+
+.project-card:hover .project-art>img {
+    transform: scale(1.035);
+}
+
+.project-card:hover .card-title {
+    color: var(--accent);
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 18px;
+    padding-top: 17px;
+}
+
+.card-title {
+    font-family: var(--mono);
+    font-size: 17px;
+    letter-spacing: -0.03em;
+    margin: 0 0 4px;
+    font-weight: 500;
+}
+
+.card-info p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.card-info>.mono {
+    padding-top: 5px;
+    white-space: nowrap;
+}
+
+.project-number {
+    color: var(--muted);
+    font: 12px var(--mono);
+    margin-right: 12px;
+}
+
+.type-art {
+    background: #ebdfd0;
+    flex-direction: column;
+    align-items: start;
+    padding: 35px;
+}
+
+.type-art strong {
+    font: 48px/1.1 var(--mono);
+    letter-spacing: -0.04em;
+    font-weight: 400;
+}
+
+.type-art p {
+    font: 12px/1.7 var(--mono);
+    max-width: 210px;
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 100px;
+    padding-bottom: 100px;
+}
+
+.about-layout p {
+    font-size: 20px;
+    line-height: 1.65;
+    margin-top: 0;
+}
+
+.about-aside {
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+}
+
+.about-aside h2 {
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 0 24px;
+}
+
+.practice {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.practice a {
+    font-family: var(--mono);
+    font-size: 16px;
+}
+
+.practice p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: var(--muted);
+}
+
+.page-intro {
+    padding: 60px 0 56px;
+    max-width: 950px;
+}
+
+.page-intro h1 {
+    font-family: var(--mono);
+    font-size: clamp(42px, 6vw, 84px);
+    font-weight: 400;
+    line-height: 1.06;
+    letter-spacing: -0.04em;
+    margin: 24px 0;
+}
+
+.page-intro p {
+    font-size: 21px;
+    max-width: 600px;
+}
+
+.editorial-copy {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 70px;
+    padding: 0 0 58px;
+    max-width: 1150px;
+}
+
+.editorial-copy h2 {
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.editorial-copy p {
+    font-size: 18px;
+    line-height: 1.65;
+    margin: 0 0 20px;
+}
+
+.editorial-copy p:last-child {
+    margin: 0;
+}
+
+.editorial-copy .note {
+    font-size: 14px;
+    color: var(--muted);
+    border-left: 2px solid var(--accent);
+    padding-left: 20px;
+}
+
+@media(max-width: 900px) {
+.about-layout {
+        gap: 45px;
+    }
+.editorial-copy {
+        gap: 35px;
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+@media(max-width: 600px) {
+.page-intro {
+        padding: 38px 0;
+    }
+.page-intro p {
+        font-size: 18px;
+    }
+.editorial-copy {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding-bottom: 38px;
+    }
+.editorial-copy p {
+        font-size: 16px;
+    }
+.about-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding-bottom: 55px;
+    }
+.about-layout p {
+        font-size: 17px;
+    }
+.about-aside p {
+        font-size: 14px;
+    }
+.lab-grid {
+        grid-template-columns: 1fr;
+        margin-bottom: 55px;
+    }
+}
+
+/* Standalone contact page. */
+.contact-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; padding: 24px 0 100px; border-top: 1px solid var(--line); }
+.contact-email { display: block; width: fit-content; font-size: clamp(24px, 3.5vw, 48px); letter-spacing: -.04em; margin-top: 18px; overflow-wrap: anywhere; }
+.contact-email:hover { color: var(--accent); }
+.contact-socials { display: flex; flex-direction: column; align-items: start; gap: 20px; }
+.contact-socials h2 { margin: 0; }
+@media (max-width: 600px) { .contact-layout { grid-template-columns: 1fr; gap: 40px; padding-bottom: 60px; } .type-art strong { font-size: clamp(28px, 8vw, 48px); } }
+

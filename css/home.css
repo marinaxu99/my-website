@@ -1,0 +1,512 @@
+/* home.css — see README.md for page assignments. */
+
+.hero {
+    padding: 62px 0 58px;
+}
+
+.hero-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: start;
+}
+
+.hero h1 {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: clamp(48px, 6.2vw, 92px);
+    line-height: 1.05;
+    letter-spacing: -0.05em;
+    margin: 30px 0 28px;
+    max-width: 1100px;
+}
+
+.hero h1 em {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+}
+
+.hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 30px;
+}
+
+.hero-bottom p {
+    font-size: 18px;
+    max-width: 470px;
+    margin: 0;
+    line-height: 1.55;
+}
+
+.spotlight-section {
+    margin-bottom: 95px;
+}
+
+.spotlight-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.spotlight-arrows {
+    display: flex;
+    gap: 8px;
+}
+
+.spotlight-arrows button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 0;
+    transition: all 0.2s ease;
+}
+
+.spotlight-arrows button svg {
+    display: block;
+    margin: auto;
+    transition: transform 0.15s ease;
+}
+
+.spotlight-arrows button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.spotlight-arrows button:active svg {
+    transform: scale(0.9);
+}
+
+.spotlight-track {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 40px;
+    padding: 10px 0 20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.spotlight-track::-webkit-scrollbar {
+    display: none;
+}
+
+.spotlight-panel {
+    flex: 0 0 clamp(800px, 86vw, 1300px);
+    scroll-snap-align: start;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 45px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    align-items: center;
+}
+
+.panel-visual {
+    position: relative;
+    width: 100%;
+    height: clamp(480px, 68vh, 760px);
+    overflow: hidden;
+    background: #e8e7e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.visual-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s ease;
+}
+
+.layer-default {
+    opacity: 1;
+    z-index: 1;
+}
+
+.layer-default img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.layer-alt {
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    transform: scale(0.98);
+}
+
+.panel-visual:hover .layer-default,
+.panel-visual:focus .layer-default {
+    opacity: 0;
+    transform: scale(1.02);
+}
+
+.panel-visual:hover .layer-alt,
+.panel-visual:focus .layer-alt {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+.specimen-body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(32px, 4.5vw, 60px);
+    box-sizing: border-box;
+    color: var(--ink);
+    border: 1px solid var(--line);
+}
+
+.arki-alt-specimen {
+    background: #eae7de;
+}
+
+.everyday-alt-specimen {
+    background: #e2e8df;
+}
+
+.chef-alt-specimen {
+    background: #dde4eb;
+}
+
+.wrap-alt-specimen {
+    background: #ede9d8;
+}
+
+.specimen-tag {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.specimen-body h3 {
+    font-family: var(--sans);
+    font-size: clamp(28px, 3.4vw, 44px);
+    line-height: 1.08;
+    margin: 14px 0;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+}
+
+.specimen-body h3 em {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+}
+
+.specimen-body p {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--muted);
+    margin: 0;
+}
+
+.panel-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+}
+
+.content-header .eyebrow {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.panel-title {
+    font-family: var(--sans);
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin: 0 0 16px;
+    color: var(--ink);
+}
+
+.panel-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    margin: 0 0 32px;
+    max-width: 420px;
+}
+
+.panel-meta-table {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 34px;
+}
+
+.meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    font-size: 13.5px;
+}
+
+.meta-row .meta-label {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding-top: 2px;
+}
+
+.meta-row .meta-val {
+    font-family: var(--sans);
+    color: var(--ink);
+    text-align: right;
+}
+
+.meta-stacked-val {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+    font-family: var(--sans);
+    color: var(--ink);
+    line-height: 1.35;
+    text-align: right;
+}
+
+.spotlight-dash-track {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.dash-item {
+    border: none;
+    padding: 0;
+    width: 32px;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dash-item:hover {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.dash-item.active {
+    background: var(--ink);
+    height: 2.5px;
+}
+
+.archive {
+    margin-bottom: 100px;
+}
+
+.archive-row {
+    display: grid;
+    grid-template-columns: 50px 1.6fr 1.15fr 0.65fr 20px;
+    gap: 12px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    transition: padding 0.2s;
+}
+
+.archive-row:hover {
+    color: var(--accent);
+    padding-left: 8px;
+}
+
+.archive-row .title {
+    font-family: var(--mono);
+    font-size: 18px;
+    letter-spacing: -0.025em;
+}
+
+.archive-row .meta {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.archive-row .arrow {
+    text-align: right;
+    font-family: var(--mono);
+}
+
+.lab-strip {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    background: #eeece5;
+    margin-bottom: 95px;
+}
+
+.lab-intro {
+    padding: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.lab-intro h2 {
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: clamp(34px, 3.8vw, 54px);
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    margin: 0;
+}
+
+.lab-intro p {
+    max-width: 330px;
+}
+
+.lab-strip>a {
+    overflow: hidden;
+    min-height: 350px;
+}
+
+.lab-strip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s;
+}
+
+.lab-strip>a:hover img {
+    transform: scale(1.035);
+}
+
+@media(max-width: 900px) {
+.hero {
+        padding-top: 42px;
+    }
+.hero h1 {
+        font-size: 58px;
+    }
+.hero-bottom p {
+        font-size: 16px;
+        max-width: 350px;
+    }
+.spotlight-panel {
+        grid-template-columns: 1fr;
+        flex: 0 0 88vw;
+        gap: 28px;
+    }
+.panel-visual {
+        height: 52vh;
+    }
+.panel-content {
+        padding-left: 0;
+    }
+.panel-desc {
+        max-width: none;
+    }
+.archive-row {
+        grid-template-columns: 35px 1.5fr 1fr 20px;
+    }
+.archive-row .status {
+        display: none;
+    }
+.lab-intro {
+        padding: 30px;
+    }
+}
+
+@media(max-width: 600px) {
+.hero {
+        padding: 32px 0 40px;
+    }
+.hero-top .location {
+        display: none;
+    }
+.hero h1 {
+        font-size: clamp(38px, 10vw, 54px);
+        margin: 28px 0 24px;
+    }
+.hero-bottom {
+        display: block;
+    }
+.hero-bottom p {
+        max-width: 320px;
+        font-size: 15px;
+    }
+.hero-bottom .text-link {
+        margin-top: 25px;
+    }
+.archive {
+        margin-bottom: 55px;
+    }
+.archive-row {
+        grid-template-columns: 28px 1fr 18px;
+        gap: 8px;
+        padding: 17px 0;
+    }
+.archive-row .meta {
+        display: none;
+    }
+.archive-row .title {
+        font-size: 16px;
+    }
+.lab-strip {
+        grid-template-columns: 1fr;
+        margin-bottom: 55px;
+    }
+.lab-intro {
+        padding: 30px 26px;
+    }
+.lab-intro h2 {
+        font-size: 38px;
+    }
+.lab-strip>a {
+        min-height: 0;
+        height: 260px;
+    }
+}
+
+
+/* Keep the thin indicators, but give them a comfortable hit area. */
+.dash-item, .dash-item.active, .dash-item:hover { height: 32px; background: transparent; position: relative; }
+.dash-item::after { content: ''; position: absolute; height: 2px; inset: 15px 0 auto; background: #00000024; }
+.dash-item.active::after { background: var(--ink); }
+.dash-item:hover::after { background: #00000059; }
+.spotlight-arrows button:disabled { opacity: .3; cursor: default; }
+.spotlight-panel, .panel-content { min-width: 0; }
+.spotlight-track::after { content: ''; flex: 0 0 var(--spotlight-tail, 0px); }
+@media (max-width: 600px) {
+    .spotlight-section .section-head { align-items: center; flex-wrap: wrap; }
+    .spotlight-controls { gap: 12px; }
+    .panel-visual { min-height: 340px; }
+}
+

@@ -9,12 +9,11 @@
         content="A personal archive of design, film, web experiments, and ceramics by Marina Mingnan Xu.">
     <meta name="theme-color" content="#faf9f6">
     <link rel="icon" type="image/png" href="assets/nanlogo.png">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
+
 </head>
 
 <body><a class="skip" href="#main">Skip to content</a>
@@ -23,7 +22,7 @@
                 aria-label="Marina Mingnan Xu — home"><img src="assets/nanlogo.png" alt=""><span>marina<br>mingnan
                     xu</span></a>
             <div class="nav-links"><a href="index.html" aria-current="page">Index</a><a href="lab.html">Lab</a><a
-                    href="about.html">About</a><a href="#contact">Contact</a></div>
+                    href="about.html">About</a><a href="contact.html">Contact</a></div>
         </nav>
     </header>
     <main id="main" class="wrap">
@@ -43,7 +42,7 @@
             <div class="section-head">
                 <h2 id="selected-title" class="eyebrow">Selected work</h2>
                 <div class="spotlight-controls">
-                    <span class="mono" id="spotlight-counter">01 / 04</span>
+                    <span class="mono" id="spotlight-counter" aria-live="polite" aria-atomic="true">01 / 04</span>
                     <div class="spotlight-arrows">
                         <button type="button" id="spotlight-prev" aria-label="Previous project">
                             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
@@ -63,13 +62,15 @@
                 </div>
             </div>
 
-            <div class="spotlight-track" id="spotlight-track">
+            <div class="spotlight-track" id="spotlight-track" tabindex="0" role="region"
+                aria-label="Selected projects; use left and right arrow keys to browse">
 
                 <!-- 01: Arki Pictures -->
                 <article class="spotlight-panel" data-index="0">
                     <a class="panel-visual" href="arki-pictures.html" aria-label="View Arki Pictures project">
                         <div class="visual-layer layer-default">
-                            <img src="assets/arkicover.png" alt="Arki Pictures cover">
+                            <img src="assets/arkicover.png" alt="Arki Pictures interface showcase" width="1600"
+                                height="1600">
                         </div>
                         <div class="visual-layer layer-alt arki-alt-specimen">
                             <div class="specimen-body">
@@ -113,7 +114,8 @@
                 <article class="spotlight-panel" data-index="1">
                     <a class="panel-visual" href="everyday-gourmet.html" aria-label="View Everyday Gourmet project">
                         <div class="visual-layer layer-default">
-                            <img src="assets/gourmetcover.png" alt="Everyday Gourmet cover" loading="lazy">
+                            <img src="assets/gourmetcover.png" alt="Everyday Gourmet interface showcase" width="1600"
+                                height="1600" loading="lazy">
                         </div>
                         <div class="visual-layer layer-alt everyday-alt-specimen">
                             <div class="specimen-body">
@@ -157,7 +159,8 @@
                 <article class="spotlight-panel" data-index="2">
                     <a class="panel-visual" href="sous-chef.html" aria-label="View Web Sous-Chef project">
                         <div class="visual-layer layer-default">
-                            <img src="assets/souschefcover.png" alt="Web Sous-Chef cover" loading="lazy">
+                            <img src="assets/souschefcover.png" alt="Web Sous-Chef interface showcase" width="1600"
+                                height="1600" loading="lazy">
                         </div>
                         <div class="visual-layer layer-alt chef-alt-specimen">
                             <div class="specimen-body">
@@ -201,7 +204,8 @@
                 <article class="spotlight-panel" data-index="3">
                     <a class="panel-visual" href="wrap-sheet.html" aria-label="View Wrap Sheet project">
                         <div class="visual-layer layer-default">
-                            <img src="assets/wrapsheetcover.png" alt="Wrap Sheet cover" loading="lazy">
+                            <img src="assets/wrapsheetcover.png" alt="Wrap Sheet interface showcase" width="1600"
+                                height="1600" loading="lazy">
                         </div>
                         <div class="visual-layer layer-alt wrap-alt-specimen">
                             <div class="specimen-body">
@@ -243,7 +247,7 @@
 
             </div>
 
-            <div class="spotlight-dash-track" aria-hidden="true">
+            <div class="spotlight-dash-track" aria-label="Choose a selected project">
                 <button type="button" class="dash-item active" data-target="0" aria-label="Go to project 1"></button>
                 <button type="button" class="dash-item" data-target="1" aria-label="Go to project 2"></button>
                 <button type="button" class="dash-item" data-target="2" aria-label="Go to project 3"></button>
