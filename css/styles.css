@@ -84,7 +84,7 @@ summary:focus-visible {
 
 /* ==========================================================================
    GLOBAL HEADER & NAVIGATION
-   ========================================================================= */
+   ========================================================================== */
 
 .site-nav {
     display: flex;
@@ -540,7 +540,7 @@ summary:focus-visible {
 }
 
 /* ==========================================================================
-   ARCHIVE & LAB STRIP
+   ARCHIVE & LAB STRIP (index.html)
    ========================================================================== */
 
 .archive {
@@ -932,6 +932,301 @@ summary:focus-visible {
 }
 
 /* ==========================================================================
+   WEB SOUS-CHEF SCATTERED ARCHITECTURAL COLLAGE SPECIMEN (FLUID RESPONSIVE)
+   ========================================================================== */
+
+.chef-collage-board {
+    width: 100%;
+    max-width: 100%;
+    background: #f4f5f7;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: clamp(18px, 3.5vw, 48px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: clamp(420px, 58vw, 680px);
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.collage-meta-top,
+.collage-meta-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: clamp(9.5px, 0.85vw, 11px);
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    opacity: 0.75;
+    z-index: 2;
+}
+
+.collage-meta-top {
+    padding-bottom: clamp(12px, 1.6vw, 20px);
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.12);
+}
+
+.collage-meta-bottom {
+    padding-top: clamp(12px, 1.6vw, 20px);
+    border-top: 1px dashed rgba(0, 0, 0, 0.12);
+}
+
+.collage-stage {
+    position: relative;
+    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: clamp(20px, 3vw, 44px) clamp(24px, 3.5vw, 48px);
+    align-items: center;
+    padding: clamp(16px, 2.5vw, 32px) 0;
+}
+
+.collage-item {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    min-width: 0;
+}
+
+.item-dialog {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    justify-self: start;
+}
+
+.dialog-robot-wrap {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 1.4vw, 16px);
+}
+
+.dialog-robot-img {
+    width: clamp(38px, 4.2vw, 52px);
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(2px 3px 0 rgba(0, 0, 0, 0.1));
+}
+
+.dialog-speech {
+    background: #ffffff;
+    border: 1.5px solid var(--ink);
+    padding: clamp(6px, 0.8vw, 10px) clamp(12px, 1.3vw, 18px);
+    font-size: clamp(10.5px, 0.95vw, 12px);
+    border-radius: 18px;
+    box-shadow: 2px 2px 0 var(--ink);
+    color: var(--ink);
+    white-space: nowrap;
+}
+
+.item-prompt {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1px solid var(--ink);
+    padding: clamp(4px, 0.6vw, 7px) clamp(10px, 1.1vw, 14px);
+    font-size: clamp(10px, 0.9vw, 11.5px);
+    border-radius: 4px;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.12);
+    margin-bottom: 12px;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.prompt-label {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.prompt-query {
+    color: var(--ink);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.item-filters {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: clamp(4px, 0.6vw, 8px);
+    background: rgba(255, 255, 255, 0.85);
+    padding: clamp(5px, 0.7vw, 8px) clamp(8px, 1vw, 14px);
+    border: 1px solid var(--line);
+    border-radius: 30px;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.filter-tag {
+    font-size: clamp(9px, 0.8vw, 10px);
+    letter-spacing: 0.05em;
+    color: var(--muted);
+}
+
+.item-filters .pill {
+    font-size: clamp(9.5px, 0.85vw, 11px);
+    padding: 2px clamp(6px, 0.8vw, 10px);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    color: var(--muted);
+    background: transparent;
+}
+
+.item-filters .pill.active {
+    background: var(--ink);
+    color: #ffffff;
+    border-color: var(--ink);
+}
+
+.item-recipe-card {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    width: 100%;
+    max-width: 440px;
+    background: #ffffff;
+    border: 1.5px solid var(--ink);
+    padding: clamp(14px, 1.8vw, 24px);
+    box-shadow: clamp(4px, 0.5vw, 6px) clamp(4px, 0.5vw, 6px) 0 var(--ink);
+    box-sizing: border-box;
+}
+
+.card-eyebrow-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: clamp(9px, 0.8vw, 10.5px);
+    margin-bottom: 8px;
+    border-bottom: 1px dashed var(--line);
+    padding-bottom: 6px;
+}
+
+.tag-accent {
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.card-time {
+    color: var(--muted);
+}
+
+.item-recipe-card .card-title {
+    font-family: var(--sans);
+    font-size: clamp(15px, 1.4vw, 18px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 6px;
+    color: var(--ink);
+}
+
+.item-recipe-card .card-desc {
+    font-family: var(--sans);
+    font-size: clamp(11.5px, 1vw, 13.5px);
+    line-height: 1.45;
+    color: var(--muted);
+    margin: 0 0 clamp(10px, 1.2vw, 16px);
+}
+
+.card-action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: clamp(9.5px, 0.85vw, 11px);
+    padding-top: 8px;
+    border-top: 1px solid #f0f0ec;
+}
+
+.action-badge {
+    background: var(--ink);
+    color: #ffffff;
+    padding: 4px clamp(8px, 1vw, 12px);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.card-match {
+    color: #188038;
+    font-weight: 600;
+    font-size: clamp(8.5px, 0.75vw, 10px);
+}
+
+.item-dock-hud {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    justify-self: end;
+    width: 100%;
+    max-width: 320px;
+    background: #ffffff;
+    border: 1.5px solid var(--ink);
+    box-shadow: clamp(3px, 0.4vw, 5px) clamp(3px, 0.4vw, 5px) 0 var(--ink);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.dock-hud-header {
+    background: #000000;
+    color: #ffffff;
+    padding: 6px 12px;
+    font-size: clamp(8.5px, 0.75vw, 10px);
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.hud-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #4ade80;
+}
+
+.dock-hud-body {
+    padding: clamp(10px, 1.3vw, 16px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 1vw, 12px);
+}
+
+.dock-timer-digits {
+    font-size: clamp(20px, 2vw, 26px);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    text-align: center;
+    padding: 4px 0;
+    background: #f6f6f3;
+    border: 1px solid var(--line);
+}
+
+.dock-tools-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: clamp(9px, 0.8vw, 10.5px);
+    color: var(--muted);
+}
+
+.tool-btn {
+    cursor: default;
+    white-space: nowrap;
+}
+
+.item-recipe-card:hover {
+    transform: translateY(-2px);
+    box-shadow: clamp(5px, 0.6vw, 8px) clamp(5px, 0.6vw, 8px) 0 var(--ink);
+}
+
+.item-dock-hud:hover {
+    transform: translateY(-2px);
+    box-shadow: clamp(4px, 0.5vw, 7px) clamp(4px, 0.5vw, 7px) 0 var(--ink);
+}
+
+/* ==========================================================================
    FOOTER
    ========================================================================== */
 
@@ -981,13 +1276,13 @@ summary:focus-visible {
    RESPONSIVE BREAKPOINTS
    ========================================================================== */
 
-@media(min-width:1600px) {
+@media(min-width: 1600px) {
     .wrap {
         width: calc(100% - 160px);
     }
 }
 
-@media(max-width:900px) {
+@media(max-width: 900px) {
     .wrap {
         width: calc(100% - 48px);
     }
@@ -1053,7 +1348,36 @@ summary:focus-visible {
     }
 }
 
-@media(max-width:600px) {
+@media(max-width: 860px) {
+    .chef-collage-board {
+        min-height: auto;
+        padding: 20px;
+    }
+
+    .collage-stage {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 16px 0;
+    }
+
+    .item-dialog,
+    .item-filters,
+    .item-recipe-card,
+    .item-dock-hud {
+        grid-column: 1 / -1;
+        grid-row: auto;
+        justify-self: stretch;
+        max-width: none;
+        width: 100%;
+    }
+
+    .item-filters {
+        justify-self: start;
+        justify-content: flex-start;
+    }
+}
+
+@media(max-width: 600px) {
     .wrap {
         width: calc(100% - 36px);
     }
