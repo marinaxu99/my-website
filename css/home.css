@@ -1,7 +1,11 @@
-/* home.css — see README.md for page assignments. */
+/* home.css — Updated for airy vertical flow & seamless visual borders */
+
+/* ==========================================================================
+   HERO SECTION — Expanded Vertical Air
+   ========================================================================== */
 
 .hero {
-    padding: 62px 0 58px;
+    padding: clamp(84px, 10vh, 136px) 0 clamp(80px, 9vh, 120px);
 }
 
 .hero-top {
@@ -9,6 +13,7 @@
     justify-content: space-between;
     gap: 30px;
     align-items: start;
+    margin-bottom: 8px;
 }
 
 .hero h1 {
@@ -17,7 +22,7 @@
     font-size: clamp(48px, 6.2vw, 92px);
     line-height: 1.05;
     letter-spacing: -0.05em;
-    margin: 30px 0 28px;
+    margin: 32px 0 34px;
     max-width: 1100px;
 }
 
@@ -34,17 +39,22 @@
     justify-content: space-between;
     align-items: end;
     gap: 30px;
+    padding-top: 8px;
 }
 
 .hero-bottom p {
     font-size: 18px;
-    max-width: 470px;
+    max-width: 480px;
     margin: 0;
-    line-height: 1.55;
+    line-height: 1.6;
 }
 
+/* ==========================================================================
+   SPOTLIGHT SECTION & SEPARATIONS
+   ========================================================================== */
+
 .spotlight-section {
-    margin-bottom: 95px;
+    margin-bottom: clamp(120px, 14vh, 180px);
 }
 
 .spotlight-controls {
@@ -95,8 +105,9 @@
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    gap: 40px;
-    padding: 10px 0 20px;
+    gap: 60px;
+    /* Wider gap between panels so the next card isn't encroaching */
+    padding: 18px 0 24px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
 }
@@ -106,29 +117,40 @@
 }
 
 .spotlight-panel {
-    flex: 0 0 clamp(800px, 86vw, 1300px);
+    /* Set panel width to match container width cleanly */
+    flex: 0 0 100%;
+    max-width: 100%;
     scroll-snap-align: start;
     display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    gap: 45px;
+    grid-template-columns: 1.55fr 1fr;
+    gap: 52px;
     background: transparent;
     border: none;
     padding: 0;
     align-items: center;
 }
 
+/* ==========================================================================
+   PANEL VISUAL & BORDER DEFINITION
+   ========================================================================== */
+
 .panel-visual {
     position: relative;
     width: 100%;
-    height: clamp(480px, 68vh, 760px);
+    height: clamp(480px, 66vh, 740px);
     overflow: hidden;
-    background: #e8e7e0;
+    background: #f2efe9;
+    /* Neutral gallery mat for light images */
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     text-decoration: none;
     color: inherit;
+    border-radius: 2px;
+
+    /* Clean inset outline that defines light backgrounds without projecting harsh outer wireframes */
+    box-shadow: inset 0 0 0 1px rgba(36, 36, 31, 0.12);
 }
 
 .visual-layer {
@@ -136,11 +158,9 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s ease;
 }
 
 .layer-default {
-    opacity: 1;
     z-index: 1;
 }
 
@@ -148,86 +168,55 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
 }
 
-.layer-alt {
-    opacity: 0;
-    z-index: 2;
-    pointer-events: none;
-    transform: scale(0.98);
-}
-
-.panel-visual:hover .layer-default,
-.panel-visual:focus .layer-default {
-    opacity: 0;
+.panel-visual:hover .layer-default img,
+.panel-visual:focus-visible .layer-default img {
     transform: scale(1.02);
+    opacity: 0.94;
 }
 
-.panel-visual:hover .layer-alt,
-.panel-visual:focus .layer-alt {
-    opacity: 1;
-    pointer-events: auto;
-    transform: scale(1);
-}
-
-.specimen-body {
-    height: 100%;
+/* Option B: Architectural Hairline Bar */
+.intent-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 13px 20px;
+    background: rgba(18, 20, 24, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    padding: clamp(32px, 4.5vw, 60px);
-    box-sizing: border-box;
-    color: var(--ink);
-    border: 1px solid var(--line);
-}
-
-.arki-alt-specimen {
-    background: #eae7de;
-}
-
-.everyday-alt-specimen {
-    background: #e2e8df;
-}
-
-.chef-alt-specimen {
-    background: #dde4eb;
-}
-
-.wrap-alt-specimen {
-    background: #ede9d8;
-}
-
-.specimen-tag {
+    align-items: center;
+    color: #faf9f6;
+    font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.12em;
-    color: var(--accent);
-    font-weight: 500;
+    letter-spacing: 0.04em;
+    pointer-events: none;
+    z-index: 2;
+
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.specimen-body h3 {
-    font-family: var(--sans);
-    font-size: clamp(28px, 3.4vw, 44px);
-    line-height: 1.08;
-    margin: 14px 0;
-    font-weight: 500;
-    color: var(--ink);
-    letter-spacing: -0.03em;
+.intent-bar span.accent {
+    color: #fcd450;
+    font-weight: 700;
 }
 
-.specimen-body h3 em {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-style: italic;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    color: var(--ink);
+.panel-visual:hover .intent-bar,
+.panel-visual:focus-visible .intent-bar {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.specimen-body p {
-    font-size: 15px;
-    line-height: 1.55;
-    color: var(--muted);
-    margin: 0;
-}
+/* ==========================================================================
+   PANEL CONTENT COLUMN
+   ========================================================================== */
 
 .panel-content {
     display: flex;
@@ -238,34 +227,34 @@
 
 .content-header .eyebrow {
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 .panel-title {
     font-family: var(--sans);
-    font-size: clamp(28px, 3vw, 44px);
+    font-size: clamp(30px, 3.2vw, 46px);
     font-weight: 600;
     letter-spacing: -0.03em;
-    margin: 0 0 16px;
+    margin: 0 0 18px;
     color: var(--ink);
 }
 
 .panel-desc {
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 16.5px;
+    line-height: 1.62;
     color: var(--ink);
-    margin: 0 0 32px;
-    max-width: 420px;
+    margin: 0 0 36px;
+    max-width: 440px;
 }
 
 .panel-meta-table {
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
-    padding: 18px 0;
+    padding: 20px 0;
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    margin-bottom: 34px;
+    gap: 15px;
+    margin-bottom: 38px;
 }
 
 .meta-row {
@@ -306,37 +295,50 @@
     justify-content: flex-end;
     align-items: center;
     gap: 10px;
-    margin-top: 24px;
+    margin-top: 28px;
 }
 
 .dash-item {
     border: none;
     padding: 0;
     width: 32px;
-    height: 2px;
-    background: rgba(0, 0, 0, 0.14);
+    height: 32px;
+    background: transparent;
     cursor: pointer;
-    transition: all 0.3s ease;
+    position: relative;
 }
 
-.dash-item:hover {
+.dash-item::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    inset: 15px 0 auto;
+    background: rgba(0, 0, 0, 0.14);
+    transition: all 0.25s ease;
+}
+
+.dash-item:hover::after {
     background: rgba(0, 0, 0, 0.35);
 }
 
-.dash-item.active {
+.dash-item.active::after {
     background: var(--ink);
     height: 2.5px;
 }
 
+/* ==========================================================================
+   ARCHIVE & LAB STRIP (Expanded Vertical Air)
+   ========================================================================== */
+
 .archive {
-    margin-bottom: 100px;
+    margin-bottom: clamp(120px, 14vh, 180px);
 }
 
 .archive-row {
     display: grid;
     grid-template-columns: 50px 1.6fr 1.15fr 0.65fr 20px;
     gap: 12px;
-    padding: 20px 0;
+    padding: 22px 0;
     border-bottom: 1px solid var(--line);
     align-items: center;
     transition: padding 0.2s;
@@ -363,15 +365,21 @@
     font-family: var(--mono);
 }
 
+/* ==========================================================================
+   LAB STRIP — Square Balanced Frame
+   ========================================================================== */
+
 .lab-strip {
     display: grid;
-    grid-template-columns: 1fr 1.15fr;
+    grid-template-columns: 1.15fr 1fr;
+    /* Balances text width against the square image */
     background: #eeece5;
-    margin-bottom: 95px;
+    margin-bottom: clamp(120px, 14vh, 180px);
+    align-items: stretch;
 }
 
 .lab-intro {
-    padding: 44px;
+    padding: clamp(36px, 4vw, 56px);
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -382,131 +390,180 @@
 .lab-intro h2 {
     font-family: var(--mono);
     font-weight: 400;
-    font-size: clamp(34px, 3.8vw, 54px);
-    line-height: 1.08;
+    font-size: clamp(32px, 3.4vw, 48px);
+    line-height: 1.1;
     letter-spacing: -0.04em;
     margin: 0;
 }
 
 .lab-intro p {
-    max-width: 330px;
+    max-width: 360px;
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 14px 0 0;
 }
 
+/* Enforce 1:1 square aspect ratio and eliminate portrait blowout */
 .lab-strip>a {
     overflow: hidden;
-    min-height: 350px;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    min-height: 0;
+    display: block;
 }
 
 .lab-strip img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s;
+    object-position: center;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .lab-strip>a:hover img {
     transform: scale(1.035);
 }
 
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
 @media(max-width: 900px) {
-.hero {
-        padding-top: 42px;
+    .hero {
+        padding: 56px 0 52px;
     }
-.hero h1 {
+
+    .hero h1 {
         font-size: 58px;
     }
-.hero-bottom p {
+
+    .hero-bottom p {
         font-size: 16px;
         max-width: 350px;
     }
-.spotlight-panel {
+
+    .spotlight-panel {
         grid-template-columns: 1fr;
-        flex: 0 0 88vw;
-        gap: 28px;
+        flex: 0 0 100%;
+        gap: 32px;
     }
-.panel-visual {
+
+    .panel-visual {
         height: 52vh;
     }
-.panel-content {
+
+    .panel-content {
         padding-left: 0;
     }
-.panel-desc {
+
+    .panel-desc {
         max-width: none;
     }
-.archive-row {
+
+    .archive-row {
         grid-template-columns: 35px 1.5fr 1fr 20px;
     }
-.archive-row .status {
+
+    .archive-row .status {
         display: none;
     }
-.lab-intro {
-        padding: 30px;
+
+    .lab-intro {
+        padding: 32px;
     }
 }
 
 @media(max-width: 600px) {
-.hero {
-        padding: 32px 0 40px;
+    .hero {
+        padding: 40px 0 46px;
     }
-.hero-top .location {
+
+    .hero-top .location {
         display: none;
     }
-.hero h1 {
+
+    .hero h1 {
         font-size: clamp(38px, 10vw, 54px);
         margin: 28px 0 24px;
     }
-.hero-bottom {
+
+    .hero-bottom {
         display: block;
     }
-.hero-bottom p {
+
+    .hero-bottom p {
         max-width: 320px;
         font-size: 15px;
     }
-.hero-bottom .text-link {
+
+    .hero-bottom .text-link {
         margin-top: 25px;
     }
-.archive {
-        margin-bottom: 55px;
+
+    .spotlight-section,
+    .archive,
+    .lab-strip {
+        margin-bottom: 72px;
     }
-.archive-row {
+
+    .archive-row {
         grid-template-columns: 28px 1fr 18px;
         gap: 8px;
-        padding: 17px 0;
+        padding: 18px 0;
     }
-.archive-row .meta {
+
+    .archive-row .meta {
         display: none;
     }
-.archive-row .title {
+
+    .archive-row .title {
         font-size: 16px;
     }
-.lab-strip {
+
+    .lab-strip {
         grid-template-columns: 1fr;
-        margin-bottom: 55px;
     }
-.lab-intro {
-        padding: 30px 26px;
+
+    .lab-intro {
+        padding: 30px 24px;
     }
-.lab-intro h2 {
+
+    .lab-intro h2 {
         font-size: 38px;
     }
-.lab-strip>a {
+
+    .lab-strip>a {
         min-height: 0;
-        height: 260px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .spotlight-section .section-head {
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .spotlight-controls {
+        gap: 12px;
+    }
+
+    .panel-visual {
+        min-height: 340px;
     }
 }
 
-
-/* Keep the thin indicators, but give them a comfortable hit area. */
-.dash-item, .dash-item.active, .dash-item:hover { height: 32px; background: transparent; position: relative; }
-.dash-item::after { content: ''; position: absolute; height: 2px; inset: 15px 0 auto; background: #00000024; }
-.dash-item.active::after { background: var(--ink); }
-.dash-item:hover::after { background: #00000059; }
-.spotlight-arrows button:disabled { opacity: .3; cursor: default; }
-.spotlight-panel, .panel-content { min-width: 0; }
-.spotlight-track::after { content: ''; flex: 0 0 var(--spotlight-tail, 0px); }
-@media (max-width: 600px) {
-    .spotlight-section .section-head { align-items: center; flex-wrap: wrap; }
-    .spotlight-controls { gap: 12px; }
-    .panel-visual { min-height: 340px; }
+.spotlight-arrows button:disabled {
+    opacity: .3;
+    cursor: default;
 }
 
+.spotlight-panel,
+.panel-content {
+    min-width: 0;
+}
+
+.spotlight-track::after {
+    content: '';
+    flex: 0 0 var(--spotlight-tail, 0px);
+}
