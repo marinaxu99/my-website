@@ -1,4 +1,4 @@
-/* base.css — see README.md for page assignments. */
+/* base.css — Universal Baseline Tokens & Navigation */
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 
@@ -18,7 +18,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+    scroll-padding-top: 40px;
 }
 
 body {
@@ -76,13 +76,17 @@ summary:focus-visible {
     background: var(--ink);
     color: white;
     padding: 12px;
-    z-index: 20;
+    z-index: 120;
     font-family: var(--mono);
 }
 
 .skip:focus {
     top: 12px;
 }
+
+/* ==========================================================================
+   SITE NAVIGATION (Natural Non-Sticky Flow)
+   ========================================================================== */
 
 .site-nav {
     display: flex;
@@ -133,6 +137,7 @@ summary:focus-visible {
     position: absolute;
     bottom: 0;
     left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-links a:hover {
@@ -208,38 +213,56 @@ summary:focus-visible {
     transition: transform 0.6s ease;
 }
 
+/* ==========================================================================
+   SHARED EDITORIAL FOOTER
+   ========================================================================== */
+
 .site-footer {
     border-top: 1px solid var(--line);
-    padding: 38px 0 24px;
+    padding: clamp(48px, 6vh, 72px) 0 24px;
 }
 
 .footer-top {
     display: flex;
     justify-content: space-between;
     gap: 30px;
-    padding-bottom: 70px;
+    padding-bottom: clamp(60px, 8vh, 100px);
 }
 
 .footer-top h2 {
     font-family: var(--mono);
-    font-size: clamp(35px, 5vw, 65px);
+    font-size: clamp(38px, 5vw, 68px);
     font-weight: 400;
-    line-height: 1.1;
+    line-height: 1.08;
     letter-spacing: -0.04em;
-    margin: 8px 0 20px;
+    margin: 12px 0 24px;
 }
 
-.footer-links {
+.footer-links-stacked {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 18px;
+    padding-top: 18px;
+    font-family: var(--mono);
+    font-size: 13.5px;
+}
+
+.links-row-top a {
+    color: var(--ink);
+}
+
+.links-row-top a:hover {
+    color: var(--accent);
+}
+
+.links-row-bottom {
     display: flex;
     gap: 28px;
-    align-items: start;
-    padding-top: 12px;
-    font-family: var(--mono);
-    font-size: 13px;
 }
 
-.footer-links a:hover {
-    text-decoration: underline;
+.links-row-bottom a:hover {
+    color: var(--accent);
 }
 
 .footer-bottom {
@@ -248,81 +271,100 @@ summary:focus-visible {
     gap: 25px;
     font: 12px var(--mono);
     color: var(--muted);
+    padding-top: 24px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
 }
 
 @media(min-width: 1600px) {
-.wrap {
+    .wrap {
         width: calc(100% - 160px);
     }
 }
 
 @media(max-width: 900px) {
-.wrap {
+    .wrap {
         width: calc(100% - 48px);
     }
-.brand span {
+
+    .brand span {
         display: none;
     }
-.footer-links {
-        gap: 18px;
+
+    .footer-links-stacked {
+        align-items: flex-start;
     }
 }
 
 @media(max-width: 600px) {
-.wrap {
+    .wrap {
         width: calc(100% - 36px);
     }
-.site-nav {
+
+    .site-nav {
         min-height: 82px;
         gap: 12px;
     }
-.brand img {
+
+    .brand img {
         width: 42px;
         height: 32px;
     }
-.nav-links {
+
+    .nav-links {
         gap: 19px;
         font-size: 13px;
     }
-.section-head {
-        padding-bottom: 20px;
-    }
-.footer-top {
+
+    .footer-top {
         display: block;
-        padding-bottom: 45px;
+        padding-bottom: 36px;
     }
-.footer-top h2 {
+
+    .footer-top h2 {
         font-size: 42px;
     }
-.footer-links {
-        gap: 20px;
+
+    .footer-links-stacked {
         margin-top: 28px;
+        gap: 12px;
     }
-.footer-bottom {
+
+    .footer-bottom {
         display: block;
         font-size: 11px;
         line-height: 1.7;
     }
-.footer-bottom span {
+
+    .footer-bottom span {
         display: block;
     }
 }
 
 @media(prefers-reduced-motion:reduce) {
-html {
+    html {
         scroll-behavior: auto;
     }
-*,
-*:before,
-*:after {
+
+    *,
+    *:before,
+    *:after {
         transition: none !important;
         animation: none !important;
     }
 }
 
-/* Shared media frame; used by both Lab cards and case studies. */
-main { min-width: 0; }
-h1, .text-link { overflow-wrap: anywhere; }
-@media (max-width: 400px) { .nav-links { gap: 12px; font-size: 12px; } }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; } }
+main {
+    min-width: 0;
+}
 
+h1,
+.text-link {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 400px) {
+    .nav-links {
+        gap: 12px;
+        font-size: 12px;
+    }
+}

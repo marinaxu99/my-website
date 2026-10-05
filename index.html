@@ -24,20 +24,21 @@
                     href="about.html">About</a><a href="contact.html">Contact</a></div>
         </nav>
     </header>
-    <main id="main" class="wrap">
-        <section class="hero">
+    <main id="main">
+        <!-- Hero Section (Natural Peek of Selected Work) -->
+        <section class="hero wrap is-focused">
             <div class="hero-top"><span class="eyebrow">Marina Mingnan Xu / Personal archive</span><span
                     class="mono location">SUZHOU ↔ SEOUL</span></div>
             <h1>I mostly design.<br>Sometimes <em>other things.</em></h1>
             <div class="hero-bottom">
                 <p>Websites, films, useful little tools, and things made by hand. A collection of what I do, and what
-                    I’m figuring out.</p><a class="text-link" href="#archive">Browse the archive <span
+                    I’m figuring out.</p><a class="text-link" href="#selected-work">Browse the archive <span
                         aria-hidden="true">↓</span></a>
             </div>
         </section>
 
         <!-- Selected Work Spotlight -->
-        <section aria-labelledby="selected-title" class="spotlight-section">
+        <section aria-labelledby="selected-title" class="spotlight-section wrap" id="selected-work">
             <div class="section-head">
                 <h2 id="selected-title" class="eyebrow">Selected work</h2>
                 <div class="spotlight-controls">
@@ -66,7 +67,8 @@
 
                 <!-- 01: Arki Pictures -->
                 <article class="spotlight-panel" data-index="0">
-                    <a class="panel-visual" href="arki-pictures.html" aria-label="View Arki Pictures project">
+                    <a class="panel-visual" href="arki-pictures.html?from=spotlight&project=0"
+                        aria-label="View Arki Pictures project">
                         <div class="visual-layer layer-default">
                             <img src="assets/arkicover.png" alt="Arki Pictures interface showcase" width="1600"
                                 height="1600">
@@ -100,15 +102,16 @@
                         </div>
 
                         <div class="panel-footer">
-                            <a class="text-link" href="arki-pictures.html">Explore project <span
-                                    aria-hidden="true">↗</span></a>
+                            <a class="text-link" href="arki-pictures.html?from=spotlight&project=0">Explore project
+                                <span aria-hidden="true">↗</span></a>
                         </div>
                     </div>
                 </article>
 
                 <!-- 02: Everyday Gourmet -->
                 <article class="spotlight-panel" data-index="1">
-                    <a class="panel-visual" href="everyday-gourmet.html" aria-label="View Everyday Gourmet project">
+                    <a class="panel-visual" href="everyday-gourmet.html?from=spotlight&project=1"
+                        aria-label="View Everyday Gourmet project">
                         <div class="visual-layer layer-default">
                             <img src="assets/gourmetcover.png" alt="Everyday Gourmet interface showcase" width="1600"
                                 height="1600" loading="lazy">
@@ -142,15 +145,16 @@
                         </div>
 
                         <div class="panel-footer">
-                            <a class="text-link" href="everyday-gourmet.html">Explore project <span
-                                    aria-hidden="true">↗</span></a>
+                            <a class="text-link" href="everyday-gourmet.html?from=spotlight&project=1">Explore project
+                                <span aria-hidden="true">↗</span></a>
                         </div>
                     </div>
                 </article>
 
                 <!-- 03: Web Sous-Chef -->
                 <article class="spotlight-panel" data-index="2">
-                    <a class="panel-visual" href="sous-chef.html" aria-label="View Web Sous-Chef project">
+                    <a class="panel-visual" href="sous-chef.html?from=spotlight&project=2"
+                        aria-label="View Web Sous-Chef project">
                         <div class="visual-layer layer-default">
                             <img src="assets/souschefcover.png" alt="Web Sous-Chef interface showcase" width="1600"
                                 height="1600" loading="lazy">
@@ -184,7 +188,7 @@
                         </div>
 
                         <div class="panel-footer">
-                            <a class="text-link" href="sous-chef.html">Explore project <span
+                            <a class="text-link" href="sous-chef.html?from=spotlight&project=2">Explore project <span
                                     aria-hidden="true">↗</span></a>
                         </div>
                     </div>
@@ -192,7 +196,8 @@
 
                 <!-- 04: Wrap Sheet -->
                 <article class="spotlight-panel" data-index="3">
-                    <a class="panel-visual" href="wrap-sheet.html" aria-label="View Wrap Sheet project">
+                    <a class="panel-visual" href="wrap-sheet.html?from=spotlight&project=3"
+                        aria-label="View Wrap Sheet project">
                         <div class="visual-layer layer-default">
                             <img src="assets/wrapsheetcover.png" alt="Wrap Sheet interface showcase" width="1600"
                                 height="1600" loading="lazy">
@@ -226,7 +231,7 @@
                         </div>
 
                         <div class="panel-footer">
-                            <a class="text-link" href="wrap-sheet.html">Explore project <span
+                            <a class="text-link" href="wrap-sheet.html?from=spotlight&project=3">Explore project <span
                                     aria-hidden="true">↗</span></a>
                         </div>
                     </div>
@@ -242,53 +247,77 @@
             </div>
         </section>
 
-        <section class="archive" id="archive" aria-labelledby="archive-title">
+        <!-- The Index Section -->
+        <section class="archive wrap" id="archive" aria-labelledby="archive-title">
             <div class="section-head">
                 <h2 id="archive-title">The index</h2><span class="mono">All projects / 06</span>
-            </div><a class="archive-row" href="arki-pictures.html"><span class="mono muted">01</span><span
-                    class="title">Arki Pictures</span><span class="meta">Brand, web & film</span><span
-                    class="meta status">Ongoing</span><span class="arrow" aria-hidden="true">↗</span></a><a
-                class="archive-row" href="everyday-gourmet.html"><span class="mono muted">02</span><span
-                    class="title">Everyday Gourmet</span><span class="meta">UI/UX & visual identity</span><span
-                    class="meta status">Academic project · 2025</span><span class="arrow"
-                    aria-hidden="true">↗</span></a><a class="archive-row" href="sous-chef.html"><span
-                    class="mono muted">03</span><span class="title">Web Sous-Chef</span><span class="meta">Interactive
-                    web & UI/UX</span><span class="meta status">Academic project · 2025</span><span class="arrow"
-                    aria-hidden="true">↗</span></a><a class="archive-row" href="wrap-sheet.html"><span
-                    class="mono muted">04</span><span class="title">Wrap Sheet</span><span class="meta">Web tool &
-                    workflow design</span><span class="meta status">In progress</span><span class="arrow"
-                    aria-hidden="true">↗</span></a><a class="archive-row" href="nan-studio.html"><span
-                    class="mono muted">05</span><span class="title">NAN / Clay practice</span><span
-                    class="meta">Ceramics</span><span class="meta status">Ongoing practice</span><span class="arrow"
-                    aria-hidden="true">↗</span></a><a class="archive-row" href="handwritten-type.html"><span
-                    class="mono muted">06</span><span class="title">Handwritten type</span><span class="meta">Type
-                    experiment</span><span class="meta status">Personal experiment</span><span class="arrow"
-                    aria-hidden="true">↗</span></a>
-        </section>
-        <section class="lab-strip">
-            <div class="lab-intro"><span class="eyebrow">Off the screen / In the lab</span>
-                <div>
-                    <h2>A little room<br>to play.</h2>
-                    <p>Clay, handwritten letters, and experiments without a brief. Some finished, some still taking
-                        shape.</p>
-                </div><a class="text-link" href="lab.html">Step into the lab <span aria-hidden="true">↗</span></a>
-            </div><a href="nan-studio.html" aria-label="Explore my clay practice"><img src="assets/nanexample.jpeg"
-                    alt="Ceramic bowls gathered inside a kiln" loading="lazy"></a>
-        </section>
-    </main>
-    <footer class="site-footer wrap" id="contact">
-        <div class="footer-top">
-            <div><span class="eyebrow">Always open to a conversation</span>
-                <h2>Say hello.</h2><a class="text-link" href="mailto:marinaxu99@gmail.com">marinaxu99@gmail.com <span
+            </div>
+            <div class="archive-table">
+                <a class="archive-row" href="arki-pictures.html?from=archive"><span class="mono muted">01</span><span
+                        class="title">Arki Pictures</span><span class="meta">Brand, web & film</span><span
+                        class="meta status">Ongoing</span><span class="arrow" aria-hidden="true">↗</span></a>
+                <a class="archive-row" href="everyday-gourmet.html?from=archive"><span class="mono muted">02</span><span
+                        class="title">Everyday Gourmet</span><span class="meta">UI/UX & visual identity</span><span
+                        class="meta status">Academic project · 2025</span><span class="arrow"
+                        aria-hidden="true">↗</span></a>
+                <a class="archive-row" href="sous-chef.html?from=archive"><span class="mono muted">03</span><span
+                        class="title">Web
+                        Sous-Chef</span><span class="meta">Interactive
+                        web & UI/UX</span><span class="meta status">Academic project · 2025</span><span class="arrow"
+                        aria-hidden="true">↗</span></a>
+                <a class="archive-row" href="wrap-sheet.html?from=archive"><span class="mono muted">04</span><span
+                        class="title">Wrap
+                        Sheet</span><span class="meta">Web tool &
+                        workflow design</span><span class="meta status">In progress</span><span class="arrow"
+                        aria-hidden="true">↗</span></a>
+                <a class="archive-row" href="nan-studio.html"><span class="mono muted">05</span><span class="title">NAN
+                        / Clay practice</span><span class="meta">Ceramics</span><span class="meta status">Ongoing
+                        practice</span><span class="arrow" aria-hidden="true">↗</span></a>
+                <a class="archive-row" href="handwritten-type.html"><span class="mono muted">06</span><span
+                        class="title">Handwritten type</span><span class="meta">Type
+                        experiment</span><span class="meta status">Personal experiment</span><span class="arrow"
                         aria-hidden="true">↗</span></a>
             </div>
-            <div class="footer-links"><a href="https://www.instagram.com/marina_xu99/" target="_blank"
-                    rel="noopener noreferrer">Instagram ↗</a><a href="https://www.linkedin.com/in/marina-mingnan-xu"
-                    target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="#top">Back to top ↑</a></div>
-        </div>
-        <div class="footer-bottom"><span>© 2026 Marina Mingnan Xu</span><span>An ongoing collection. Designed & built by
-                Marina.</span></div>
-    </footer>
+        </section>
+
+        <!-- Lab Strip & Footer Section -->
+        <section class="closing-stage wrap" id="contact">
+            <div class="lab-strip">
+                <div class="lab-intro"><span class="eyebrow">Off the screen / In the lab</span>
+                    <div>
+                        <h2>A little room<br>to play.</h2>
+                        <p>Clay, handwritten letters, and experiments without a brief. Some finished, some still taking
+                            shape.</p>
+                    </div><a class="text-link" href="lab.html">Step into the lab <span aria-hidden="true">↗</span></a>
+                </div><a href="nan-studio.html" aria-label="Explore my clay practice"><img src="assets/nanexample.jpeg"
+                        alt="Ceramic floral arrangement on metal table" loading="lazy"></a>
+            </div>
+
+            <footer class="site-footer">
+                <div class="footer-top">
+                    <div><span class="eyebrow">Always open to a conversation</span>
+                        <h2>Say hello.</h2><a class="text-link" href="mailto:marinaxu99@gmail.com">marinaxu99@gmail.com
+                            <span aria-hidden="true">↗</span></a>
+                    </div>
+                    <!-- Stacked Two-Row Navigation -->
+                    <div class="footer-links-stacked">
+                        <div class="links-row-top">
+                            <a href="#top">Back to top ↑</a>
+                        </div>
+                        <div class="links-row-bottom">
+                            <a href="https://www.instagram.com/marina_xu99/" target="_blank"
+                                rel="noopener noreferrer">Instagram ↗</a>
+                            <a href="https://www.linkedin.com/in/marina-mingnan-xu" target="_blank"
+                                rel="noopener noreferrer">LinkedIn ↗</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom"><span>© 2026 Marina Mingnan Xu</span><span>An ongoing collection. Designed &
+                        built by
+                        Marina.</span></div>
+            </footer>
+        </section>
+    </main>
 
     <script defer src="scripts/spotlight.js"></script>
 </body>

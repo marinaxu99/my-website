@@ -1,11 +1,50 @@
-/* home.css — Updated for airy vertical flow & seamless visual borders */
+/* home.css — Natural Pacing, Hero Peek & Viewpoint Focus Transitions */
 
 /* ==========================================================================
-   HERO SECTION — Expanded Vertical Air
+   VIEWPOINT FOCUS / BLUR TRANSITIONS
+   ========================================================================== */
+
+.hero,
+.spotlight-section,
+.archive,
+.closing-stage {
+    opacity: 0.32;
+    filter: blur(5px);
+    transform: translateY(4px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, filter, transform;
+}
+
+.hero.is-focused,
+.spotlight-section.is-focused,
+.archive.is-focused,
+.closing-stage.is-focused {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero,
+    .spotlight-section,
+    .archive,
+    .closing-stage {
+        opacity: 1 !important;
+        filter: none !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* ==========================================================================
+   HERO SECTION (Natural Layout with Selected Work Peek)
    ========================================================================== */
 
 .hero {
-    padding: clamp(84px, 10vh, 136px) 0 clamp(80px, 9vh, 120px);
+    padding: clamp(150px, 10vh, 136px) 0 clamp(120px, 9vh, 120px);
 }
 
 .hero-top {
@@ -22,7 +61,7 @@
     font-size: clamp(48px, 6.2vw, 92px);
     line-height: 1.05;
     letter-spacing: -0.05em;
-    margin: 32px 0 34px;
+    margin: 32px 0 35px;
     max-width: 1100px;
 }
 
@@ -37,24 +76,25 @@
 .hero-bottom {
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;
     gap: 30px;
     padding-top: 8px;
 }
 
 .hero-bottom p {
     font-size: 18px;
-    max-width: 480px;
+    max-width: 500px;
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.55;
 }
 
 /* ==========================================================================
-   SPOTLIGHT SECTION & SEPARATIONS
+   SELECTED WORK SPOTLIGHT SECTION
    ========================================================================== */
 
 .spotlight-section {
-    margin-bottom: clamp(120px, 14vh, 180px);
+    padding-top: 10px;
+    margin-bottom: clamp(60px, 8vh, 100px);
 }
 
 .spotlight-controls {
@@ -65,12 +105,12 @@
 
 .spotlight-arrows {
     display: flex;
-    gap: 8px;
+    gap: 10px;
 }
 
 .spotlight-arrows button {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     border: 1px solid var(--line);
     background: transparent;
@@ -81,22 +121,37 @@
     justify-content: center;
     padding: 0;
     line-height: 0;
-    transition: all 0.2s ease;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.25s ease,
+        background-color 0.25s ease,
+        color 0.25s ease;
+    will-change: transform;
 }
 
 .spotlight-arrows button svg {
     display: block;
     margin: auto;
-    transition: transform 0.15s ease;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.spotlight-arrows button:hover {
+.spotlight-arrows button:hover:not(:disabled) {
     border-color: var(--accent);
     color: var(--accent);
+    background: rgba(196, 68, 36, 0.04);
 }
 
-.spotlight-arrows button:active svg {
-    transform: scale(0.9);
+#spotlight-prev:active:not(:disabled) svg {
+    transform: translateX(-2px);
+}
+
+#spotlight-next:active:not(:disabled) svg {
+    transform: translateX(2px);
+}
+
+.spotlight-arrows button:disabled {
+    opacity: 0.22;
+    cursor: default;
+    border-color: var(--line);
 }
 
 .spotlight-track {
@@ -106,8 +161,7 @@
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     gap: 60px;
-    /* Wider gap between panels so the next card isn't encroaching */
-    padding: 18px 0 24px;
+    padding: 16px 0 20px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
 }
@@ -117,7 +171,6 @@
 }
 
 .spotlight-panel {
-    /* Set panel width to match container width cleanly */
     flex: 0 0 100%;
     max-width: 100%;
     scroll-snap-align: start;
@@ -130,17 +183,12 @@
     align-items: center;
 }
 
-/* ==========================================================================
-   PANEL VISUAL & BORDER DEFINITION
-   ========================================================================== */
-
 .panel-visual {
     position: relative;
     width: 100%;
-    height: clamp(480px, 66vh, 740px);
+    height: clamp(480px, 62vh, 700px);
     overflow: hidden;
     background: #f2efe9;
-    /* Neutral gallery mat for light images */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -148,8 +196,6 @@
     text-decoration: none;
     color: inherit;
     border-radius: 2px;
-
-    /* Clean inset outline that defines light backgrounds without projecting harsh outer wireframes */
     box-shadow: inset 0 0 0 1px rgba(36, 36, 31, 0.12);
 }
 
@@ -177,7 +223,6 @@
     opacity: 0.94;
 }
 
-/* Option B: Architectural Hairline Bar */
 .intent-bar {
     position: absolute;
     bottom: 0;
@@ -197,7 +242,6 @@
     letter-spacing: 0.04em;
     pointer-events: none;
     z-index: 2;
-
     opacity: 0;
     transform: translateY(100%);
     transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -213,10 +257,6 @@
     opacity: 1;
     transform: translateY(0);
 }
-
-/* ==========================================================================
-   PANEL CONTENT COLUMN
-   ========================================================================== */
 
 .panel-content {
     display: flex;
@@ -295,7 +335,7 @@
     justify-content: flex-end;
     align-items: center;
     gap: 10px;
-    margin-top: 28px;
+    margin-top: 20px;
 }
 
 .dash-item {
@@ -327,18 +367,24 @@
 }
 
 /* ==========================================================================
-   ARCHIVE & LAB STRIP (Expanded Vertical Air)
+   ARCHIVE INDEX SECTION
    ========================================================================== */
 
 .archive {
-    margin-bottom: clamp(120px, 14vh, 180px);
+    margin-bottom: clamp(80px, 10vh, 130px);
+}
+
+.archive-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .archive-row {
     display: grid;
     grid-template-columns: 50px 1.6fr 1.15fr 0.65fr 20px;
     gap: 12px;
-    padding: 22px 0;
+    padding: clamp(20px, 2.5vh, 28px) 0;
     border-bottom: 1px solid var(--line);
     align-items: center;
     transition: padding 0.2s;
@@ -366,25 +412,28 @@
 }
 
 /* ==========================================================================
-   LAB STRIP — Square Balanced Frame
+   LAB STRIP & CLOSING STAGE
    ========================================================================== */
+
+.closing-stage {
+    margin-bottom: 0;
+}
 
 .lab-strip {
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    /* Balances text width against the square image */
+    grid-template-columns: 1.25fr 1fr;
     background: #eeece5;
-    margin-bottom: clamp(120px, 14vh, 180px);
+    margin-bottom: clamp(80px, 11vh, 140px);
     align-items: stretch;
 }
 
 .lab-intro {
-    padding: clamp(36px, 4vw, 56px);
+    padding: clamp(40px, 4.5vw, 64px);
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: space-between;
-    gap: 24px;
+    gap: 28px;
 }
 
 .lab-intro h2 {
@@ -404,7 +453,6 @@
     margin: 14px 0 0;
 }
 
-/* Enforce 1:1 square aspect ratio and eliminate portrait blowout */
 .lab-strip>a {
     overflow: hidden;
     aspect-ratio: 1 / 1;
@@ -431,7 +479,7 @@
 
 @media(max-width: 900px) {
     .hero {
-        padding: 56px 0 52px;
+        padding: 56px 0 48px;
     }
 
     .hero h1 {
@@ -445,7 +493,6 @@
 
     .spotlight-panel {
         grid-template-columns: 1fr;
-        flex: 0 0 100%;
         gap: 32px;
     }
 
@@ -469,14 +516,14 @@
         display: none;
     }
 
-    .lab-intro {
-        padding: 32px;
+    .lab-strip {
+        grid-template-columns: 1fr;
     }
 }
 
 @media(max-width: 600px) {
     .hero {
-        padding: 40px 0 46px;
+        padding: 40px 0 44px;
     }
 
     .hero-top .location {
@@ -501,36 +548,13 @@
         margin-top: 25px;
     }
 
-    .spotlight-section,
-    .archive,
-    .lab-strip {
-        margin-bottom: 72px;
-    }
-
     .archive-row {
         grid-template-columns: 28px 1fr 18px;
         gap: 8px;
-        padding: 18px 0;
     }
 
     .archive-row .meta {
         display: none;
-    }
-
-    .archive-row .title {
-        font-size: 16px;
-    }
-
-    .lab-strip {
-        grid-template-columns: 1fr;
-    }
-
-    .lab-intro {
-        padding: 30px 24px;
-    }
-
-    .lab-intro h2 {
-        font-size: 38px;
     }
 
     .lab-strip>a {
@@ -538,24 +562,6 @@
         height: auto;
         aspect-ratio: 1 / 1;
     }
-
-    .spotlight-section .section-head {
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
-    .spotlight-controls {
-        gap: 12px;
-    }
-
-    .panel-visual {
-        min-height: 340px;
-    }
-}
-
-.spotlight-arrows button:disabled {
-    opacity: .3;
-    cursor: default;
 }
 
 .spotlight-panel,
